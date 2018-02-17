@@ -1,7 +1,7 @@
 package pl.gzhk.messagebus;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import pl.gzhk.messagebus.middleware.Callable;
 import pl.gzhk.messagebus.middleware.MessageBusMiddleware;
 
@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class MiddlewareAwareMessageBusTest {
+public class MiddlewareAwareMessageBusTest {
 
     @Test
-    void executesMiddlewaresInOrder() throws MessageHandlingException {
+    public void executesMiddlewaresInOrder() throws MessageHandlingException {
         List<String> executionOrder = new ArrayList<>();
         List<MessageBusMiddleware> middlewares = new ArrayList<>();
         middlewares.add(

@@ -1,7 +1,7 @@
 package pl.gzhk.messagebus.middleware;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import pl.gzhk.messagebus.MessageHandlerNotFound;
 import pl.gzhk.messagebus.MessageHandlingException;
 import pl.gzhk.messagebus.TestMessageHandler;
@@ -10,10 +10,10 @@ import pl.gzhk.messagebus.handler.MessageHandler;
 import java.util.Collections;
 import java.util.HashMap;
 
-class SingleHandlerMessageBusMiddlewareTest {
+public class SingleHandlerMessageBusMiddlewareTest {
 
     @Test
-    void delegatesHandlingOfMessageToProperHandler() throws MessageHandlingException {
+    public void delegatesHandlingOfMessageToProperHandler() throws MessageHandlingException {
         HashMap<Class<?>, MessageHandler<?>> messageHandlers = new HashMap<>();
         TestMessageHandler testMessageHandler = new TestMessageHandler();
         messageHandlers.put(String.class, testMessageHandler);
@@ -24,7 +24,7 @@ class SingleHandlerMessageBusMiddlewareTest {
     }
 
     @Test
-    void throwsExceptionWhenMessageHandlerDoesNotExists() {
+    public void throwsExceptionWhenMessageHandlerDoesNotExists() {
         Assertions
             .assertThatExceptionOfType(MessageHandlerNotFound.class)
             .isThrownBy(

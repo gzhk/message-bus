@@ -1,7 +1,7 @@
 package pl.gzhk.messagebus.middleware;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import pl.gzhk.messagebus.MessageHandlingException;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -9,10 +9,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-class FinishHandlingMessageBeforeNextMessageBusMiddlewareTest {
+public class FinishHandlingMessageBeforeNextMessageBusMiddlewareTest {
 
     @Test
-    void finishesHandlingMessageBeforeHandlingNext() throws Exception {
+    public void finishesHandlingMessageBeforeHandlingNext() throws Exception {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         ConcurrentLinkedQueue<String> messages = new ConcurrentLinkedQueue<>();
 

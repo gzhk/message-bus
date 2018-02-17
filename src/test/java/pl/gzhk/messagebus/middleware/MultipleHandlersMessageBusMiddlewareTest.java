@@ -1,7 +1,7 @@
 package pl.gzhk.messagebus.middleware;
 
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import pl.gzhk.messagebus.MessageHandlingException;
 import pl.gzhk.messagebus.TestMessageHandler;
 import pl.gzhk.messagebus.handler.MessageHandler;
@@ -10,10 +10,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-class MultipleHandlersMessageBusMiddlewareTest {
+public class MultipleHandlersMessageBusMiddlewareTest {
 
     @Test
-    void notifiesAllSubscribedHandlers() throws MessageHandlingException {
+    public void notifiesAllSubscribedHandlers() throws MessageHandlingException {
         HashMap<Class<?>, Set<MessageHandler<?>>> handlersMap = new HashMap<>();
         HashSet<MessageHandler<?>> stringHandlers = new HashSet<>();
         TestMessageHandler firstHandler = new TestMessageHandler();
@@ -33,7 +33,7 @@ class MultipleHandlersMessageBusMiddlewareTest {
     }
 
     @Test
-    void doesNotThrowsExceptionIfThereIsNoHandler() throws MessageHandlingException {
+    public void doesNotThrowsExceptionIfThereIsNoHandler() throws MessageHandlingException {
         new MultipleHandlersMessageBusMiddleware(new HashMap<>()).next("handle me", m -> {});
     }
 }
